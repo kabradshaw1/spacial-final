@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "/Users/kylebradshaw/miniconda3/envs/myenv/bin/python",
+  "python.analysis.inlayHints.variableTypes": true
+}
