@@ -49,8 +49,9 @@ def main():
     high_school_gdf = gpd.read_file(data_path / "GIS_Data/Pitt_County_High_School_Attendance_Districts/Pitt_County_High_School_Attendance_Districts.shp")
     voters_gdf = gpd.read_file(data_path / "pitt_voters.gpkg")
 
-    # Convert CRS of voter data to EPSG:2264
-    voters_gdf = voters_gdf.to_crs(epsg=2264)
+    # Ensure voters_gdf is in the same CRS as the school district data
+    if voters_gdf.crs != "EPSG:2264":
+        voters_gdf = voters_gdf.to_crs(epsg=2264)
 
     # Filter voters by party affiliation
     party_affiliations = ["DEM", "REP", "UNA"]
